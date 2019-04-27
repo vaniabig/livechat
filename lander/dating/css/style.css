@@ -189,7 +189,7 @@ body{
   -ms-flex-align:center;
   align-items:center}
 .content{
-  background:#4f3e37 url(/css/bg.jpg) no-repeat 50% 0;
+  background:#4f3e37 url(https://vaniabig.github.io/livechat/lander/dating/css/bg.jpg) no-repeat 50% 0;
   background-size:cover}
 .content.hide{
   -webkit-animation:fadeOut 2s ease 0s 1 normal forwards;
@@ -281,7 +281,7 @@ body{
   margin:20px auto;
   position:relative}
 .slice{
-  background:url(/css/tryme.jpg) 0 0 no-repeat;
+  background:url(https://vaniabig.github.io/livechat/lander/dating/css/tryme.jpg) 0 0 no-repeat;
   -webkit-border-radius:10px;
   border-radius:10px;
   background-color:#e2b7a6;
